@@ -70,11 +70,19 @@ def main(executable: Path) -> None:
             spectrum = request("/api/analyze/spectrum", {"times_s": [0, 1e-6, 2e-6, 3e-6, 4e-6, 5e-6],
                                                            "values": [0, 1, 0, -1, 0, 1], "window": "hann"})
             assert spectrum[0] == 200, spectrum
-            for route in ("/api/run/hensen-2015", "/api/run/hensen-2016"):
+            capabilities = request("/api/capabilities")[1]["features"]
+            for key, route in (("hensen_2015", "/api/run/hensen-2015"),
+                               ("hensen_2016", "/api/run/hensen-2016")):
                 result = request(route, {})
-                assert result[0] == 200, (route, result)
+                if capabilities[key]["available"]:
+                    assert result[0] == 200, (route, result)
+                else:
+                    assert result[0] == 404 and result[1]["error"]["code"] == "source_data_missing", (route, result)
             locked = request("/api/stage5b/locked-result")
-            assert locked[0] == 200 and locked[1]["result"]["status"] == "success", locked
+            if locked[0] == 200:
+                assert locked[1]["result"]["status"] == "success", locked
+            else:
+                assert locked[0] == 404 and locked[1]["error"]["code"] == "record_not_found", locked
             saved = request("/api/experiments/save", {"configuration": {"protocol": "state_measurement"},
                                                         "results": state[1]["result"]})
             assert saved[0] == 200, saved
@@ -84,7 +92,7 @@ def main(executable: Path) -> None:
             assert (Path(folder) / "experiments" / name).is_file()
             print(json.dumps({"status": "PASS", "port": port, "tested": [
                 "auth", "offline_ui", "state", "phase_damping", "chsh", "tfim", "dynamic_receiver",
-                "deviation_analyzer", "hensen_2015", "hensen_2016", "stage5b_locked",
+                "deviation_analyzer", "hensen_source_availability", "stage5b_report_availability",
                 "save", "reload", "csv_export"]}))
         finally:
             process.stdin.close()

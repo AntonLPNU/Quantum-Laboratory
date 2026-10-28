@@ -36,18 +36,27 @@ $manifest = Join-Path $desktopRoot 'build\desktop_provenance.json'
 New-Item -ItemType Directory -Path (Split-Path $manifest) -Force | Out-Null
 & $buildPython (Join-Path $PSScriptRoot 'write_desktop_provenance.py') $manifest
 if ($LASTEXITCODE -ne 0) { throw 'Build provenance could not be recorded.' }
-& $buildPython -m PyInstaller --noconfirm --clean --onedir --console `
-    --name QuantumLaboratoryCore `
-    --distpath (Join-Path $desktopRoot 'build') `
-    --workpath (Join-Path $desktopRoot 'build\pyi-work') `
-    --specpath (Join-Path $desktopRoot 'build') `
-    --paths $projectRoot `
-    --add-data "${frontendRoot}\dist;frontend\dist" `
-    --add-data "${projectRoot}\data\references\hensen_2015\original_files;data\references\hensen_2015\original_files" `
-    --add-data "${projectRoot}\data\references\hensen_2016\original_files;data\references\hensen_2016\original_files" `
-    --add-data "${projectRoot}\results\stage5b\experiment;results\stage5b\experiment" `
-    --add-data "${manifest};." `
-    (Join-Path $PSScriptRoot 'desktop_backend.py')
+$pyInstallerArgs = @(
+    '-m', 'PyInstaller', '--noconfirm', '--clean', '--onedir', '--console',
+    '--name', 'QuantumLaboratoryCore',
+    '--distpath', (Join-Path $desktopRoot 'build'),
+    '--workpath', (Join-Path $desktopRoot 'build\pyi-work'),
+    '--specpath', (Join-Path $desktopRoot 'build'),
+    '--paths', $projectRoot,
+    '--add-data', "${frontendRoot}\dist;frontend\dist"
+)
+$optionalResources = @(
+    @{ Source = (Join-Path $projectRoot 'data\references\hensen_2015\original_files'); Destination = 'data\references\hensen_2015\original_files' },
+    @{ Source = (Join-Path $projectRoot 'data\references\hensen_2016\original_files'); Destination = 'data\references\hensen_2016\original_files' },
+    @{ Source = (Join-Path $projectRoot 'results\stage5b\experiment'); Destination = 'results\stage5b\experiment' }
+)
+foreach ($resource in $optionalResources) {
+    if (Test-Path -LiteralPath $resource.Source) {
+        $pyInstallerArgs += @('--add-data', "$($resource.Source);$($resource.Destination)")
+    }
+}
+$pyInstallerArgs += @('--add-data', "${manifest};.", (Join-Path $PSScriptRoot 'desktop_backend.py'))
+& $buildPython @pyInstallerArgs
 if ($LASTEXITCODE -ne 0) { throw 'PyInstaller build failed.' }
 if ($BackendOnly) { return }
 Push-Location $desktopRoot
