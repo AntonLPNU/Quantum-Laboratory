@@ -1,10 +1,10 @@
 # Quantum Laboratory
 
-[English README](README.en.md) · [Відтворювані дослідження](research/README.md) · [Цитування](CITATION.cff) · [Сторонні матеріали](THIRD_PARTY_NOTICES.md)
+[GitHub](https://github.com/AntonLPNU/Quantum-Laboratory) · [English README](README.en.md) · [Відтворювані дослідження](research/README.md) · [Цитування](CITATION.cff) · [Сторонні матеріали](THIRD_PARTY_NOTICES.md)
 
 **Статус:** Research Preview 0.5.0. Авторські програмні матеріали, права на які належать автору, поширюються за MIT License. Сторонні компоненти й дані не охоплюються цією ліцензією — див. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Бінарний реліз ще не опублікований.
 
-**Version:** `0.5.0 Research Preview` · local release candidate, not published.
+**Version:** `0.5.0 Research Preview` · source code; Windows binaries are not published yet.
 
 Quantum Laboratory поєднує наукове Python-ядро, двоспінові Bell-експерименти, 2–6 спіновий TFIM, Stage 5B Dynamic Receiver і 3D-пісочницю Orbital Lab. Фізичні величини обчислюються у Python API; 3D-сцена є інтерактивною схемою системи, а не масштабованою геометричною моделлю.
 

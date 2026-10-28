@@ -49,6 +49,7 @@ class HttpApiTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertTrue(capabilities["features"]["tfim"]["available"])
         self.assertEqual(capabilities["features"]["hensen_2015"]["kind"], "published_data_reanalysis")
+        self.assertEqual(capabilities["features"]["hensen_2015"]["available"], http_api.HENSEN_2015.is_file())
 
     def test_state_route_returns_python_density_matrix_and_measurement_kind(self):
         status, result = dispatch("POST", "/api/run/state", {"state_name": "singlet", "shots": 0})
@@ -101,9 +102,13 @@ class HttpApiTests(unittest.TestCase):
         self.assertEqual(status, 200, response)
         self.assertEqual(response["kind"], "stage5b_analysis")
         status, hensen = dispatch("POST", "/api/run/hensen-2015", {})
-        self.assertEqual(status, 200, hensen)
-        self.assertEqual(hensen["kind"], "published_data_reanalysis")
-        self.assertNotIn("trials", hensen["result"])
+        if http_api.HENSEN_2015.is_file():
+            self.assertEqual(status, 200, hensen)
+            self.assertEqual(hensen["kind"], "published_data_reanalysis")
+            self.assertNotIn("trials", hensen["result"])
+        else:
+            self.assertEqual(status, 404, hensen)
+            self.assertEqual(hensen["error"]["code"], "source_data_missing")
 
     def test_spectrum_and_explicit_fit_routes_dispatch_to_deviation_core(self):
         times = [0.0, 1e-6, 2e-6, 3e-6, 4e-6, 5e-6]
@@ -193,6 +198,9 @@ class HttpApiTests(unittest.TestCase):
 
     def test_locked_stage5b_report_is_read_only_and_exposes_original_statistics(self):
         status, report = dispatch("GET", "/api/stage5b/locked-result")
+        if status == 404:
+            self.assertEqual(report["error"]["code"], "record_not_found")
+            return
         self.assertEqual(status, 200, report)
         self.assertEqual(report["kind"], "saved_stage5b_confirmatory_analysis")
         self.assertEqual(report["result"]["statistical_criteria"]["shots_per_group"], 14000)

@@ -50,9 +50,9 @@ FEATURES = {
     "quantum_domino": {"available": True, "kind": "exact_prediction", "detail": "Stage 5B reference, sender operation, positive control; sampling requires the registered protocol"},
     "deviation_analyzer": {"available": True, "kind": "analysis", "detail": "exact summaries and registered sampling are exposed through Stage 5B"},
     "no_signaling": {"available": True, "kind": "conditional_statistical_test", "detail": "receiver-only output; finite-sample interpretation and criteria remain in core"},
-    "hensen_2015": {"available": True, "kind": "published_data_reanalysis", "detail": "reanalysis of hash-checked original 2015 source data; not apparatus simulation"},
-    "hensen_2016": {"available": True, "kind": "published_data_reanalysis", "detail": "old/new detector source files remain distinct and hash-checked"},
-    "hensen_comparison": {"available": True, "kind": "separate_published_data_reanalyses", "detail": "keeps 2015 and 2016 separate and uses the existing documented weighted summary"},
+    "hensen_2015": {"available": HENSEN_2015.is_file(), "kind": "published_data_reanalysis", "detail": "requires separately obtained hash-checked 2015 source data; not apparatus simulation"},
+    "hensen_2016": {"available": all((HENSEN_2016 / name).is_file() for name in ("bell_open_data_2_old_detector.txt", "bell_open_data_2_new_detector.txt")), "kind": "published_data_reanalysis", "detail": "requires separate old/new detector source files and hash checks"},
+    "hensen_comparison": {"available": HENSEN_2015.is_file() and all((HENSEN_2016 / name).is_file() for name in ("bell_open_data_2_old_detector.txt", "bell_open_data_2_new_detector.txt")), "kind": "separate_published_data_reanalyses", "detail": "keeps 2015 and 2016 separate and uses the existing documented weighted summary"},
     "experiment_records": {"available": True, "kind": "reproducible_record", "detail": "JSON/CSV records in the application results directory"},
     "experiment_comparison": {"available": True, "kind": "descriptive_record_comparison", "detail": "compares saved configuration metadata and shared finite scalar result paths; no physics is rerun and no statistical test is inferred"},
 }
@@ -251,7 +251,7 @@ def dispatch(method: str, path: str, payload: dict | None = None, *, records_dir
             report_dir = ROOT / "results" / "stage5b" / "experiment"
             records = sorted(report_dir.glob("*.json")) if report_dir.is_dir() else []
             if not records:
-                raise ApiError("record_not_found", "No saved Stage 5B confirmatory report is available")
+                raise ApiError("record_not_found", "No saved Stage 5B confirmatory report is available", 404)
             record = json.loads(records[-1].read_text(encoding="utf-8"))
             saved_results = record.get("results", {})
             sampling = saved_results.get("sampling", {})
@@ -314,6 +314,8 @@ def dispatch(method: str, path: str, payload: dict | None = None, *, records_dir
                 kind = "dynamic_receiver_prediction"
             return 200, _result(output, kind, path, data)
         if method == "POST" and path == "/api/run/hensen-2015":
+            if not HENSEN_2015.is_file():
+                raise ApiError("source_data_missing", "Hensen 2015 source data are not included; obtain the original dataset and verify its SHA-256 using docs/source-register.md", 404)
             from .scientific_validation import analyze_hensen_2015, assess_hensen_2015_reproduction
             output = analyze_hensen_2015(HENSEN_2015)
             output["reproduction_status"] = assess_hensen_2015_reproduction(output)
@@ -321,6 +323,9 @@ def dispatch(method: str, path: str, payload: dict | None = None, *, records_dir
             output.pop("trials", None)
             return 200, _result(output, "published_data_reanalysis", path, {"source": "fixed hash-checked Hensen 2015 dataset"})
         if method == "POST" and path == "/api/run/hensen-2016":
+            required = (HENSEN_2016 / "bell_open_data_2_old_detector.txt", HENSEN_2016 / "bell_open_data_2_new_detector.txt")
+            if not all(path.is_file() for path in required):
+                raise ApiError("source_data_missing", "Hensen 2016 old/new detector files are not included; obtain the original dataset and verify its SHA-256 using docs/source-register.md", 404)
             from .scientific_validation import analyze_hensen_2016, assess_hensen_2016_reproduction
             output = analyze_hensen_2016(HENSEN_2016 / "bell_open_data_2_old_detector.txt",
                                          HENSEN_2016 / "bell_open_data_2_new_detector.txt")
@@ -329,6 +334,9 @@ def dispatch(method: str, path: str, payload: dict | None = None, *, records_dir
             return 200, _result(output, "published_data_reanalysis", path,
                                 {"sources": ["Hensen 2016 old detector", "Hensen 2016 new detector"]})
         if method == "POST" and path == "/api/run/hensen-compare":
+            required = (HENSEN_2015, HENSEN_2016 / "bell_open_data_2_old_detector.txt", HENSEN_2016 / "bell_open_data_2_new_detector.txt")
+            if not all(path.is_file() for path in required):
+                raise ApiError("source_data_missing", "Hensen 2015 and 2016 source files are required for separate comparison; obtain and hash-check them using docs/source-register.md", 404)
             from .scientific_validation import (analyze_hensen_2015, analyze_hensen_2016,
                                                 assess_hensen_2015_reproduction, assess_hensen_2016_reproduction,
                                                 combine_hensen_results)

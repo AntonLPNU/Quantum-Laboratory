@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 type: software
 title: Quantum Laboratory
+url: https://github.com/AntonLPNU/Quantum-Laboratory
+license: MIT
 message: "If you use Quantum Laboratory in research, please cite this software."
 authors:
   - family-names: Volos

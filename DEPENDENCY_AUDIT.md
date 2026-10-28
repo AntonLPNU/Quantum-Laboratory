@@ -44,14 +44,16 @@ is test-only and is not a runtime dependency of the application.
 
 ## Project ownership and release implications
 
-No license for the Quantum Laboratory source itself is established in this
-checkout. Dependency licenses do not grant a license to the project's own
-code, experiment records, data, screenshots, or contributed assets. Do not add
-a project license or redistribute a release until the owner approves the code
-license and the applicable data/asset permissions. The authorship and citation
-metadata still requiring owner confirmation are listed in
-[`CITATION_METADATA_NEEDED.md`](CITATION_METADATA_NEEDED.md).
+On 2026-10-28, the owner selected MIT for author-owned source and documentation;
+the scoped license is in [`LICENSE`](LICENSE). It does not license dependencies,
+experiment records, external datasets, screenshots, or contributed assets.
+The author name and version are in [`CITATION.cff`](CITATION.cff); optional
+ORCID, affiliation and DOI remain omitted unless confirmed or assigned.
 
-Before a public release, retain notices required by the exact dependency
-licenses and inspect bundled assets/fonts separately. This audit does not
-publish or modify any external service.
+This dependency inventory is dated 2026-10-21 and reflects that checkout's
+metadata. It is not a legal opinion and does not complete a license-text audit
+for any Windows binary. Before a binary distribution, inspect the exact bundle,
+retain notices required by the included dependency licenses, and review fonts
+and generated assets separately. Hensen raw data are excluded from the clean
+public source snapshot because the manifests do not establish redistribution
+permission.

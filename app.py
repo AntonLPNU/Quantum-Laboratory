@@ -367,6 +367,12 @@ with tab_validation:
     data_2016_dir = ROOT / "data" / "references" / "hensen_2016" / "original_files"
     old_apd = data_2016_dir / "bell_open_data_2_old_detector.txt"
     new_apd = data_2016_dir / "bell_open_data_2_new_detector.txt"
+    required_hensen_files = (data_2015, old_apd, new_apd)
+    missing_hensen_files = [path for path in required_hensen_files if not path.is_file()]
+    if missing_hensen_files:
+        st.info("Первинні набори Hensen не входять до вихідного пакета. Для відтворення аналізу завантажте оригінальні файли за DOI в docs/source-register.md і перевірте SHA-256 за маніфестами data/references/*/manifest.json.")
+        st.caption("До появи цих файлів сирий аналіз має статус NOT RUN; демонстраційні дані не підміняють експериментальні.")
+        st.stop()
     result_2015 = analyze_hensen_2015(data_2015)
     result_2016 = analyze_hensen_2016(old_apd, new_apd)
     combined = combine_hensen_results(result_2015, result_2016)
