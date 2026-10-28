@@ -1,0 +1,32 @@
+{
+  "name": "quantum-laboratory-desktop",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Quantum Laboratory Windows desktop shell",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable --x64"
+  },
+  "devDependencies": {
+    "electron": "45.1.0",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "ua.lpnu.quantumlaboratory",
+    "productName": "Quantum Laboratory",
+    "artifactName": "QuantumLaboratory-${os}-${arch}-${version}.${ext}",
+    "directories": { "output": "release" },
+    "files": ["main.cjs", "package.json", "assets/icon.ico"],
+    "extraResources": [{ "from": "build/QuantumLaboratoryCore", "to": "backend", "filter": ["**/*"] }],
+    "win": { "icon": "assets/icon.ico", "target": [{ "target": "nsis", "arch": ["x64"] }, { "target": "portable", "arch": ["x64"] }] },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "artifactName": "QuantumLaboratory-Setup.exe"
+    },
+    "portable": { "artifactName": "QuantumLaboratory-Portable.exe" }
+  }
+}

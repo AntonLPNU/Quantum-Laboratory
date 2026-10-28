@@ -1,0 +1,19 @@
+﻿experiment_id,field,value
+29041421-ae44-4a47-a6ca-0fbf90540e57,created_at_utc,2026-10-09T19:46:05.564325+00:00
+29041421-ae44-4a47-a6ca-0fbf90540e57,model,ideal_two_spin_projective
+29041421-ae44-4a47-a6ca-0fbf90540e57,initial_state,singlet
+29041421-ae44-4a47-a6ca-0fbf90540e57,shots_per_sender_choice,100000
+29041421-ae44-4a47-a6ca-0fbf90540e57,seed,20261009
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_axis,"[0, 0, 1]"
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_counts.0.-1,49927
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_counts.0.+1,50073
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_counts.1.-1,49743
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_counts.1.+1,50257
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_local_distribution.0.-1,0.4999999999999999
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_local_distribution.0.+1,0.4999999999999999
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_local_distribution.1.-1,0.4999999999999999
+29041421-ae44-4a47-a6ca-0fbf90540e57,receiver_local_distribution.1.+1,0.4999999999999999
+29041421-ae44-4a47-a6ca-0fbf90540e57,decoding_accuracy,0.50092
+29041421-ae44-4a47-a6ca-0fbf90540e57,decoding_standard_error,0.001118033988749895
+29041421-ae44-4a47-a6ca-0fbf90540e57,sender_outcomes_exposed_to_receiver,False
+29041421-ae44-4a47-a6ca-0fbf90540e57,assumptions,"[""ideal singlet state"", ""local unitary choices at A"", ""ideal projective readout at B"", ""no detector noise or loss""]"

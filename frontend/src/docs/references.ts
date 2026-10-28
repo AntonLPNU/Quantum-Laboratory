@@ -1,0 +1,32 @@
+/** Перевірений локальний реєстр джерел для довідки Quantum Laboratory. */
+export type Reference = Readonly<{
+  id: string;
+  authors: readonly string[];
+  title: string;
+  year: number;
+  venue: string;
+  doi?: string;
+  url?: string;
+  supports: readonly string[];
+}>;
+
+export const references: Readonly<Record<string, Reference>> = {
+  bell1964: { id: 'bell1964', authors: ['J. S. Bell'], title: 'On the Einstein Podolsky Rosen paradox', year: 1964, venue: 'Physics Physique Fizika 1, 195–200', doi: '10.1103/PhysicsPhysiqueFizika.1.195', supports: ['Теорема Белла та локально-реалістичні межі.'] },
+  chsh1969: { id: 'chsh1969', authors: ['J. F. Clauser', 'M. A. Horne', 'A. Shimony', 'R. A. Holt'], title: 'Proposed Experiment to Test Local Hidden-Variable Theories', year: 1969, venue: 'Physical Review Letters 23, 880–884', doi: '10.1103/PhysRevLett.23.880', supports: ['CHSH-нерівність для двох налаштувань на кожній стороні.'] },
+  wootters1998: { id: 'wootters1998', authors: ['W. K. Wootters'], title: 'Entanglement of Formation of an Arbitrary State of Two Qubits', year: 1998, venue: 'Physical Review Letters 80, 2245–2248', doi: '10.1103/PhysRevLett.80.2245', supports: ['Аналітична формула заплутаності двокубітних станів; concurrence.'] },
+  horodecki1995: { id: 'horodecki1995', authors: ['R. Horodecki', 'P. Horodecki', 'M. Horodecki'], title: 'Violating Bell inequality by mixed spin-1/2 states: necessary and sufficient condition', year: 1995, venue: 'Physics Letters A 200, 340–344', doi: '10.1016/0375-9601(95)00214-N', supports: ['Оптимізована CHSH-межа для довільного двокубітного стану.'] },
+  nielsen2000: { id: 'nielsen2000', authors: ['M. A. Nielsen', 'I. L. Chuang'], title: 'Quantum Computation and Quantum Information', year: 2000, venue: 'Cambridge University Press', url: 'https://doi.org/10.1017/CBO9780511976667', supports: ['Матриці густини, канали, частковий слід та вимірювання.'] },
+  kraus1983: { id: 'kraus1983', authors: ['K. Kraus'], title: 'States, Effects, and Operations: Fundamental Notions of Quantum Theory', year: 1983, venue: 'Lecture Notes in Physics 190, Springer', url: 'https://link.springer.com/book/10.1007/3-540-12732-1', supports: ['Операторне подання квантових операцій.'] },
+  choi1975: { id: 'choi1975', authors: ['M.-D. Choi'], title: 'Completely positive linear maps on complex matrices', year: 1975, venue: 'Linear Algebra and its Applications 10, 285–290', doi: '10.1016/0024-3795(75)90075-0', supports: ['Скінченновимірне подання цілком додатних відображень.'] },
+  gks1976: { id: 'gks1976', authors: ['V. Gorini', 'A. Kossakowski', 'E. C. G. Sudarshan'], title: 'Completely positive dynamical semigroups of N-level systems', year: 1976, venue: 'Journal of Mathematical Physics 17, 821–825', doi: '10.1063/1.522979', supports: ['Генератори цілком додатних марковських напівгруп.'] },
+  lindblad1976: { id: 'lindblad1976', authors: ['G. Lindblad'], title: 'On the generators of quantum dynamical semigroups', year: 1976, venue: 'Communications in Mathematical Physics 48, 119–130', doi: '10.1007/BF01608499', supports: ['Загальна форма генератора Ліндблада.'] },
+  pfeuty1970: { id: 'pfeuty1970', authors: ['P. Pfeuty'], title: 'The one-dimensional Ising model with a transverse field', year: 1970, venue: 'Annals of Physics 57, 79–90', doi: '10.1016/0003-4916(70)90270-8', supports: ['Контекст TFIM; проєкт використовує відкритий скінченний ланцюг.'] },
+  magnus2009: { id: 'magnus2009', authors: ['S. Blanes', 'F. Casas', 'J. A. Oteo', 'J. Ros'], title: 'The Magnus expansion and some of its applications', year: 2009, venue: 'Physics Reports 470, 151–238', doi: '10.1016/j.physrep.2008.11.001', supports: ['Часовий порядок та експоненціальні методи для некомутуючих генераторів.'] },
+  simon2001: { id: 'simon2001', authors: ['C. Simon', 'V. Bužek', 'N. Gisin'], title: 'No-Signaling Condition and Quantum Dynamics', year: 2001, venue: 'Physical Review Letters 87, 170405', doi: '10.1103/PhysRevLett.87.170405', supports: ['No-signaling для локальних лінійних цілком додатних карт.'] },
+  hensen2015: { id: 'hensen2015', authors: ['B. Hensen', 'H. Bernien', 'A. E. Dréau', 'A. Reiserer', 'N. Kalb', 'M. S. Blok', 'J. Ruitenberg', 'R. F. L. Vermeulen', 'R. N. Schouten', 'C. Abellán', 'W. Amaya', 'V. Pruneri', 'M. W. Mitchell', 'M. Markham', 'D. J. Twitchen', 'D. Elkouss', 'S. Wehner', 'T. H. Taminiau', 'R. Hanson'], title: 'Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres', year: 2015, venue: 'Nature 526, 682–686', doi: '10.1038/nature15759', supports: ['Оригінальна публікація Hensen 2015; не є калібруванням симуляції.'] },
+  hensen2016: { id: 'hensen2016', authors: ['B. Hensen', 'N. Kalb', 'M. S. Blok', 'A. E. Dréau', 'A. Reiserer', 'R. F. L. Vermeulen', 'R. N. Schouten', 'M. Markham', 'D. J. Twitchen', 'K. Goodenough', 'D. Elkouss', 'S. Wehner', 'T. H. Taminiau', 'R. Hanson'], title: 'Loophole-free Bell test using electron spins in diamond: second experiment and additional analysis', year: 2016, venue: 'Scientific Reports 6, 30289', doi: '10.1038/srep30289', supports: ['Окрема публікація та аналіз Hensen 2016.'] },
+  johansson2012: { id: 'johansson2012', authors: ['J. R. Johansson', 'P. D. Nation', 'F. Nori'], title: 'QuTiP: An open-source Python framework for the dynamics of open quantum systems', year: 2012, venue: 'Computer Physics Communications 183, 1760–1772', doi: '10.1016/j.cpc.2012.02.021', supports: ['Незалежна бібліотека для порівняння динаміки.'] },
+  weinberg2017: { id: 'weinberg2017', authors: ['P. Weinberg', 'M. Bukov'], title: 'QuSpin: a Python package for dynamics and exact diagonalisation of quantum many body systems part I: spin chains', year: 2017, venue: 'SciPost Physics 2, 003', doi: '10.21468/SciPostPhys.2.1.003', supports: ['Незалежна точна діагоналізація спінових ланцюгів.'] },
+  newcombe1998: { id: 'newcombe1998', authors: ['R. G. Newcombe'], title: 'Interval estimation for the difference between independent proportions: comparison of eleven methods', year: 1998, venue: 'Statistics in Medicine 17, 873–890', doi: '10.1002/(SICI)1097-0258(19980430)17:8<873::AID-SIM779>3.0.CO;2-I', supports: ['Інтервали для різниці незалежних пропорцій.'] },
+  holm1979: { id: 'holm1979', authors: ['S. Holm'], title: 'A Simple Sequentially Rejective Multiple Test Procedure', year: 1979, venue: 'Scandinavian Journal of Statistics 6, 65–70', doi: '10.2307/4615733', supports: ['Поправка Холма для сімейної помилки першого роду.'] },
+};

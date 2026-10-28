@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-28",
+  "status": "local_release_review_not_public_data_release",
+  "sha256_algorithm": "SHA-256 over exact file bytes",
+  "fixed_source_files": [
+    {
+      "path": "research/quantum_domino/preregistration.json",
+      "sha256": "66349b9599408952562b38110c69a9015342b914760de1d9c4793757a366f64b",
+      "included_in_public_source_candidate": true
+    },
+    {
+      "path": "results/stage5b/experiment/experiment_20261017T093400Z_7d044826.json",
+      "sha256": "e65090f963e2211859555d58281c36d22a5c68e1831eae9152937aa8dd0ab7c2",
+      "included_in_public_source_candidate": false
+    },
+    {
+      "path": "results/stage5b/validation_qutip.json",
+      "sha256": "ef8873815900cf960d71d6ee13d54f67a70162a6a91da505f583bfd4f39c2014",
+      "included_in_public_source_candidate": false
+    },
+    {
+      "path": "results/stage5b/validation_quspin.json",
+      "sha256": "68a15df9bc5915f6f4f749626434708bc327fe491a40e3f28a60af52ff24f847",
+      "included_in_public_source_candidate": false
+    },
+    {
+      "path": "docs/theses/2026/data/phase_damping_grid.json",
+      "sha256": "77b7684be3db255eda14f54b37a09174848d40a7712db83f65ace983aa6f35cc",
+      "included_in_public_source_candidate": false
+    }
+  ],
+  "interpretation": "Fixed checksums identify existing local records. Re-runs include timestamps and UUIDs, so compare documented numerical fields within tolerances rather than expecting byte-identical new JSON files. The full conference manuscripts and protected local records are excluded from the proposed public source candidate."
+}

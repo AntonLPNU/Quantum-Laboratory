@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+type: software
+title: Quantum Laboratory
+message: "If you use Quantum Laboratory in research, please cite this software."
+authors:
+  - family-names: Volos
+    given-names: Anton
+version: 0.5.0
+abstract: >-
+  Research preview of a reproducible quantum-state and multispin-dynamics
+  laboratory with an interactive desktop interface and Python scientific core.

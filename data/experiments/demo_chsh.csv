@@ -1,0 +1,37 @@
+﻿experiment_id,field,value
+03beb04d-2f83-4c56-afe8-0d0663a57093,created_at_utc,2026-10-09T19:46:05.605415+00:00
+03beb04d-2f83-4c56-afe8-0d0663a57093,model,ideal_two_spin_projective
+03beb04d-2f83-4c56-afe8-0d0663a57093,state_name,singlet
+03beb04d-2f83-4c56-afe8-0d0663a57093,initial_state,singlet
+03beb04d-2f83-4c56-afe8-0d0663a57093,shots_per_setting,10000
+03beb04d-2f83-4c56-afe8-0d0663a57093,seed,20261009
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.axis_a,"[1.0, 0.0, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.axis_b,"[0.7071067811865475, 0.7071067811865475, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.theoretical_correlation,-0.7071067811865475
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.sampled_correlation,-0.7026
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.standard_error,0.007116206014359328
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab.shots,10000
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.axis_a,"[1.0, 0.0, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.axis_b,"[0.7071067811865475, -0.7071067811865475, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.theoretical_correlation,-0.7071067811865475
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.sampled_correlation,-0.7134
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.standard_error,0.007007920882509273
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.ab_prime.shots,10000
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.axis_a,"[0.0, 1.0, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.axis_b,"[0.7071067811865475, 0.7071067811865475, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.theoretical_correlation,-0.7071067811865475
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.sampled_correlation,-0.7056
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.standard_error,0.007086457915530075
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b.shots,10000
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.axis_a,"[0.0, 1.0, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.axis_b,"[0.7071067811865475, -0.7071067811865475, 0.0]"
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.theoretical_correlation,0.7071067811865475
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.sampled_correlation,0.7038
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.standard_error,0.007104336926154055
+03beb04d-2f83-4c56-afe8-0d0663a57093,settings.a_prime_b_prime.shots,10000
+03beb04d-2f83-4c56-afe8-0d0663a57093,theoretical_chsh,2.82842712474619
+03beb04d-2f83-4c56-afe8-0d0663a57093,sampled_chsh,2.8254
+03beb04d-2f83-4c56-afe8-0d0663a57093,sampled_chsh_standard_error,0.014157712812569985
+03beb04d-2f83-4c56-afe8-0d0663a57093,classical_chsh_bound,2.0
+03beb04d-2f83-4c56-afe8-0d0663a57093,quantum_chsh_bound,2.8284271247461903
+03beb04d-2f83-4c56-afe8-0d0663a57093,assumptions,"[""ideal singlet or Bell state"", ""independent setting groups"", ""ideal projective readout"", ""no detector loss or loophole modeling""]"

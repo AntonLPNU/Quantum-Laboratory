@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "protocol": "stage5b-quantum-domino-v1",
+  "locked": true,
+  "code_revision_at_lock": "1f059fea559ae84bd9ff982ed16146db83da6142",
+  "python_version": "3.13.5",
+  "numpy_version": "2.5.3",
+  "configuration": {
+    "n_spins": 4,
+    "sender_site": 0,
+    "receiver_sites": [
+      1,
+      2,
+      3
+    ],
+    "entangled_receiver_site": 1,
+    "J_s_inverse": 1000000.0,
+    "h_s_inverse": 800000.0,
+    "final_time_s": 1e-05,
+    "time_grid_s": [
+      0.0,
+      1.0000000000000001e-07,
+      2.0000000000000002e-07,
+      3.0000000000000004e-07,
+      4.0000000000000003e-07,
+      5.000000000000001e-07,
+      6.000000000000001e-07,
+      7.000000000000001e-07,
+      8.000000000000001e-07,
+      9.000000000000001e-07,
+      1.0000000000000002e-06,
+      1.1e-06,
+      1.2000000000000002e-06,
+      1.3e-06,
+      1.4000000000000001e-06,
+      1.5e-06,
+      1.6000000000000001e-06,
+      1.7000000000000002e-06,
+      1.8000000000000001e-06,
+      1.9000000000000002e-06,
+      2.0000000000000003e-06,
+      2.1000000000000002e-06,
+      2.2e-06,
+      2.3e-06,
+      2.4000000000000003e-06,
+      2.5e-06,
+      2.6e-06,
+      2.7000000000000004e-06,
+      2.8000000000000003e-06,
+      2.9e-06,
+      3e-06,
+      3.1000000000000004e-06,
+      3.2000000000000003e-06,
+      3.3e-06,
+      3.4000000000000005e-06,
+      3.5000000000000004e-06,
+      3.6000000000000003e-06,
+      3.7e-06,
+      3.8000000000000005e-06,
+      3.9e-06,
+      4.000000000000001e-06,
+      4.1000000000000006e-06,
+      4.2000000000000004e-06,
+      4.3e-06,
+      4.4e-06,
+      4.5e-06,
+      4.6e-06,
+      4.700000000000001e-06,
+      4.800000000000001e-06,
+      4.9000000000000005e-06,
+      5e-06,
+      5.1e-06,
+      5.2e-06,
+      5.3e-06,
+      5.400000000000001e-06,
+      5.500000000000001e-06,
+      5.600000000000001e-06,
+      5.7000000000000005e-06,
+      5.8e-06,
+      5.9e-06,
+      6e-06,
+      6.100000000000001e-06,
+      6.200000000000001e-06,
+      6.300000000000001e-06,
+      6.4000000000000006e-06,
+      6.5000000000000004e-06,
+      6.6e-06,
+      6.7e-06,
+      6.800000000000001e-06,
+      6.900000000000001e-06,
+      7.000000000000001e-06,
+      7.100000000000001e-06,
+      7.2000000000000005e-06,
+      7.3e-06,
+      7.4e-06,
+      7.500000000000001e-06,
+      7.600000000000001e-06,
+      7.7e-06,
+      7.8e-06,
+      7.9e-06,
+      8.000000000000001e-06,
+      8.1e-06,
+      8.200000000000001e-06,
+      8.3e-06,
+      8.400000000000001e-06,
+      8.5e-06,
+      8.6e-06,
+      8.700000000000001e-06,
+      8.8e-06,
+      8.900000000000001e-06,
+      9e-06,
+      9.100000000000001e-06,
+      9.2e-06,
+      9.3e-06,
+      9.400000000000001e-06,
+      9.5e-06,
+      9.600000000000001e-06,
+      9.7e-06,
+      9.800000000000001e-06,
+      9.9e-06,
+      1e-05
+    ],
+    "sender_operation": "Pauli sigma_x unitary on site 0",
+    "primary_observable": "Pauli sigma_z",
+    "primary_receiver_site": 3,
+    "pulse_site": 2,
+    "pulse_model": "Gaussian additive transverse field; existing Stage 5A schedule",
+    "pulse_candidates_ratio_of_max_abs_J_h": [
+      0.005,
+      0.01,
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ],
+    "pulse_selection_rule": "lowest amplitude ratio meeting |delta p(+1)| >= 0.025; earliest time on the fixed 101-point grid",
+    "solver_options": {
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_steps": 100000
+    }
+  },
+  "preflight": {
+    "amplitude_ratio": 0.06,
+    "amplitude_s_inverse": 60000.0,
+    "center_s": 5e-06,
+    "width_s": 1.0000000000000002e-06,
+    "time_index": 69,
+    "time_s": 6.900000000000001e-06,
+    "reference_probability_plus": 0.11464502467713704,
+    "positive_control_probability_plus": 0.1408830431418294,
+    "difference_probability_plus": 0.026238018464692356,
+    "positive_control_trace_distance": 0.07998918022199215,
+    "solver_diagnostics": {
+      "method": "exponential_midpoint",
+      "order": 2,
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_steps": 100000,
+      "accepted_steps": 1725,
+      "rejected_steps": 1,
+      "attempted_steps": 1726,
+      "maximum_local_error": 9.431001268171235e-11,
+      "maximum_scaled_local_error": 0.9337625017991336,
+      "unitary_defect": 3.12956353640446e-13,
+      "boundary_times_s": [],
+      "final_time_s": 1e-05,
+      "global_comparison": {
+        "status": "not_performed"
+      },
+      "active_sites": [
+        1,
+        2,
+        3
+      ],
+      "memory_estimate_bytes": 314064,
+      "norm_error": 2.2426505097428162e-14
+    },
+    "global_convergence": {
+      "status": "passed",
+      "comparison_time_s": 6.900000000000001e-06,
+      "threshold": 1e-08,
+      "branches": {
+        "reference": {
+          "loose_solver": {
+            "method": "spectral",
+            "order": null,
+            "rtol": 1e-10,
+            "atol": 1e-12,
+            "max_steps": 100000,
+            "accepted_steps": 100,
+            "rejected_steps": 0,
+            "attempted_steps": 100,
+            "maximum_local_error": 0.0,
+            "maximum_scaled_local_error": 0.0,
+            "unitary_defect": 4.0848995481917856e-13,
+            "boundary_times_s": [],
+            "final_time_s": 1e-05,
+            "global_comparison": {
+              "status": "not_performed"
+            },
+            "active_sites": [
+              1,
+              2,
+              3
+            ],
+            "memory_estimate_bytes": 314064,
+            "norm_error": 2.142730437526552e-14
+          },
+          "refined_solver": {
+            "method": "spectral",
+            "order": null,
+            "rtol": 1e-12,
+            "atol": 1e-14,
+            "max_steps": 200000,
+            "accepted_steps": 1,
+            "rejected_steps": 0,
+            "attempted_steps": 1,
+            "maximum_local_error": 0.0,
+            "maximum_scaled_local_error": 0.0,
+            "unitary_defect": 4.741444869621963e-15,
+            "boundary_times_s": [],
+            "final_time_s": 6.900000000000001e-06,
+            "global_comparison": {
+              "status": "not_performed"
+            },
+            "active_sites": [
+              1,
+              2,
+              3
+            ],
+            "memory_estimate_bytes": 222864,
+            "norm_error": 4.440892098500626e-16
+          },
+          "global_full_state_trace_distance": 3.214975023976319e-14,
+          "global_primary_probability_difference": 4.524158825347513e-15
+        },
+        "positive_control": {
+          "loose_solver": {
+            "method": "exponential_midpoint",
+            "order": 2,
+            "rtol": 1e-10,
+            "atol": 1e-12,
+            "max_steps": 100000,
+            "accepted_steps": 1725,
+            "rejected_steps": 1,
+            "attempted_steps": 1726,
+            "maximum_local_error": 9.431001268171235e-11,
+            "maximum_scaled_local_error": 0.9337625017991336,
+            "unitary_defect": 3.12956353640446e-13,
+            "boundary_times_s": [],
+            "final_time_s": 1e-05,
+            "global_comparison": {
+              "status": "not_performed"
+            },
+            "active_sites": [
+              1,
+              2,
+              3
+            ],
+            "memory_estimate_bytes": 314064,
+            "norm_error": 2.2426505097428162e-14
+          },
+          "refined_solver": {
+            "method": "exponential_midpoint",
+            "order": 2,
+            "rtol": 1e-12,
+            "atol": 1e-14,
+            "max_steps": 200000,
+            "accepted_steps": 6303,
+            "rejected_steps": 2,
+            "attempted_steps": 6305,
+            "maximum_local_error": 8.081898198337573e-13,
+            "maximum_scaled_local_error": 0.8001879404294622,
+            "unitary_defect": 7.228623945561119e-13,
+            "boundary_times_s": [],
+            "final_time_s": 6.900000000000001e-06,
+            "global_comparison": {
+              "status": "not_performed"
+            },
+            "active_sites": [
+              1,
+              2,
+              3
+            ],
+            "memory_estimate_bytes": 222864,
+            "norm_error": 3.352873534367973e-14
+          },
+          "global_full_state_trace_distance": 4.797954177147812e-09,
+          "global_primary_probability_difference": 7.430519810558422e-10
+        }
+      },
+      "independent_of_local_step_error": true
+    },
+    "sender_probability_plus": 0.11464502467713333,
+    "receiver_dynamics": {
+      "baseline_final_sigma_z": [
+        -3.7192471324942744e-14,
+        0.06714232764255673,
+        0.2892901454957744
+      ],
+      "baseline_solver": {
+        "method": "spectral",
+        "order": null,
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "max_steps": 100000,
+        "accepted_steps": 100,
+        "rejected_steps": 0,
+        "attempted_steps": 100,
+        "maximum_local_error": 0.0,
+        "maximum_scaled_local_error": 0.0,
+        "unitary_defect": 4.0848995481917856e-13,
+        "boundary_times_s": [],
+        "final_time_s": 1e-05,
+        "global_comparison": {
+          "status": "not_performed"
+        },
+        "active_sites": [
+          1,
+          2,
+          3
+        ],
+        "memory_estimate_bytes": 314064,
+        "norm_error": 2.142730437526552e-14
+      },
+      "sender_solver": {
+        "method": "spectral",
+        "order": null,
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "max_steps": 100000,
+        "accepted_steps": 100,
+        "rejected_steps": 0,
+        "attempted_steps": 100,
+        "maximum_local_error": 0.0,
+        "maximum_scaled_local_error": 0.0,
+        "unitary_defect": 4.0848995481917856e-13,
+        "boundary_times_s": [],
+        "final_time_s": 1e-05,
+        "global_comparison": {
+          "status": "not_performed"
+        },
+        "active_sites": [
+          1,
+          2,
+          3
+        ],
+        "memory_estimate_bytes": 713424,
+        "trace_error": 7.338575583246823e-14,
+        "hermiticity_error": 2.1299145625347902e-15,
+        "minimum_eigenvalue": -9.970011013132278e-16
+      }
+    },
+    "power_design_sender_alternative_probability": 0.13964502467713705,
+    "power_seed": 1529012602,
+    "power_runs": [
+      {
+        "method": "Monte Carlo shared-control, two-sided Fisher exact tests, Holm FWER",
+        "probabilities_control_treatment1_treatment2": [
+          0.11464502467713704,
+          0.13964502467713705,
+          0.1408830431418294
+        ],
+        "shots_per_group": 14000,
+        "alpha": 0.01,
+        "simulations": 200000,
+        "seed": 1529012602,
+        "primary_power": [
+          0.999885,
+          0.999985
+        ],
+        "familywise_power": 0.999995,
+        "familywise_power_95_percent_wilson_interval": [
+          0.9999716758901989,
+          0.9999991173766802
+        ],
+        "familywise_power_mc_standard_error": 4.9999875000007525e-06
+      }
+    ],
+    "selected_shots_per_group": 14000
+  },
+  "primary_contrasts": [
+    "sender_operation_vs_reference",
+    "positive_control_vs_reference"
+  ],
+  "criteria": {
+    "familywise_alpha": 0.01,
+    "test": "two-sided Fisher exact with Holm adjustment",
+    "shots_per_group": 14000,
+    "minimum_probability_difference_for_sender_design_power": 0.025,
+    "target_joint_power": 0.9,
+    "power_mc_simulations": 200000,
+    "confidence_interval": "99.5% two-sided Newcombe-Wilson per primary contrast",
+    "pulse_effect_preflight_minimum_absolute_probability_shift": 0.025,
+    "exclusions": "none after unblinding; only failures specified before sampling"
+  },
+  "seed_policy": {
+    "power_seed": 1529012602,
+    "confirmatory_sampling_seed": 20261018,
+    "independent_replication_seed": 20261019,
+    "treatment_labels_not_used_to_derive_random_streams": true
+  },
+  "preregistration_hash": "2a75df79f16144ca5ad0b6cc3f4f3f09e9d63f88e1fa33d6eaec5e4e5acecad4"
+}

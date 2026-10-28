@@ -1,0 +1,12 @@
+{
+  "source": "docs/ui-design/stage-5c/orbital-lab/DESIGN.md + orbital-blank.html",
+  "colors": {
+    "canvas": "#0B1018", "panel": "#121A26", "control": "#182333", "border": "#263547",
+    "text": "#E6EDF5", "muted": "#9EADBF", "active": "#62D8E8", "correlation": "#A99BF8",
+    "warning": "#E8B66A", "error": "#F07878"
+  },
+  "typography": { "heading": "Space Grotesk", "interface": "Inter", "numeric": "JetBrains Mono" },
+  "shape": { "panelRadiusPx": 6, "controlRadiusPx": 6, "dataCellRadiusPx": 3 },
+  "layout": { "workspaceSharePercent": "80–90%", "panels": "overlay and collapsible" },
+  "locale": "uk"
+}

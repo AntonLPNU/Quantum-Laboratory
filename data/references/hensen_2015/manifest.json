@@ -1,0 +1,87 @@
+{
+  "reference_id": "HENSEN-2015-RAW-ANALYSIS",
+  "article": {
+    "citation": "Hensen et al., Nature 526, 682–686 (2015)",
+    "doi": "10.1038/nature15759",
+    "url": "https://doi.org/10.1038/nature15759"
+  },
+  "dataset": {
+    "title": "Loophole-free Bell-inequality violation using electron spins separated by 1.3 kilometres",
+    "repository": "Figshare / 4TU.ResearchData",
+    "article_id": 12703235,
+    "version": 1,
+    "doi": "10.4121/uuid:6e19e9b2-4a2d-40b5-8dd3-a660bf3c0a31",
+    "url": "https://figshare.com/articles/dataset/Loophole-free_Bell-inequality_violation_using_electron_spins_separated_by_1_3_kilometres/12703235/1",
+    "published_date": "2015-10-26",
+    "license": "4TU General Terms of Use",
+    "license_url": "https://doi.org/10.4121/resource:terms_of_use",
+    "downloaded_file": "source_data.zip",
+    "download_url": "https://ndownloader.figshare.com/files/24056582",
+    "archive_sha256": "C28EB0F075759AEF620A0B2E00A70FD675CE712BC8214D11C103F5A3D29492C0",
+    "raw_data_path": "original_files/bell_open_data.txt",
+    "raw_data_sha256": "5A6B1853554AD508D35C795415D64922ED9E5BC0469F6052AD222486AD3566FF",
+    "source_files": {
+      "original_files/bell_open_data_analysis_example.py": "8793D31A40FF671D70056E0D715813D41C1A6AB0C931212A1E98181D8E3CE47D",
+      "original_files/bell_open_data_header.ods": "97DD50F33E4CAC6E986C614E7739BDEA48797ACF40683ABEE6924B7320949A73",
+      "original_files/bell_open_data_readme.rtf": "39BDC9E658623B09EF1DFF4B43897C3B793186ED3833C0D259CC7D9ECE453BBE"
+    }
+  },
+  "analysis": {
+    "implementation": "quantum_lab/scientific_validation.py::analyze_hensen_2015",
+    "independent_of_quantum_simulator": true,
+    "test": "tests/test_scientific_validation.py::ScientificValidationTests.test_hensen_2015_reanalysis_reproduces_published_statistics",
+    "candidate_rows": 4746,
+    "event_ready_selection": {
+      "channel_0_window_start_ps": 5426350,
+      "channel_1_window_start_ps": 5425700,
+      "window_length_ps": 52450,
+      "second_window_separation_ps": 250000,
+      "required_herald_channels": "different",
+      "invalid_marker_rule": "both markers are 0 or greater than 250 attempts",
+      "after_excitation_rule": "no local excitation click at A or B"
+    },
+    "readout_window_ns": {
+      "lower_exclusive": 10620,
+      "upper_inclusive": 14320,
+      "click_encoding": "+1 if a readout click lies inside the window, otherwise -1"
+    },
+    "statistics": {
+      "correlation_formula": "E_ab = mean(x_i*y_i) for each input pair (a,b)",
+      "correlation_standard_error": "sqrt((1-E_ab^2)/n_ab)",
+      "chsh_formula": "S = E_00 + E_01 + E_10 - E_11",
+      "chsh_standard_error": "quadrature sum of four independent-setting correlation standard errors",
+      "win_rule": "((-1)^(a*b) * x_i*y_i + 1)/2",
+      "local_realist_win_probability_bound": "3/4 + 3*(tau + tau^2), tau=2*5.4e-6",
+      "p_value": "exact binomial upper tail P[X >= k], n=245, k=196, probability=published RNG-biased local-realist bound"
+    },
+    "predeclared_acceptance": {
+      "source_checksum": "exact match",
+      "valid_trials": 245,
+      "setting_counts": {"00": 53, "01": 79, "10": 62, "11": 51},
+      "published_rounding_tolerances": {"S": 0.0055, "standard_error": 0.0055, "p_value": 0.00051}
+    },
+    "reproduced": {
+      "valid_trials": 245,
+      "setting_counts": {"00": 53, "01": 79, "10": 62, "11": 51},
+      "correlations": {"00": 0.7358490566037735, "01": 0.5949367088607594, "10": 0.4838709677419355, "11": -0.6078431372549019},
+      "chsh_s": 2.4224998704613703,
+      "chsh_standard_error": 0.20382659825201987,
+      "chsh_winning_trials": 196,
+      "local_realist_win_probability_bound": 0.75003240034992,
+      "local_realist_p_value": 0.039174643558790107,
+      "status": "VALIDATED"
+    },
+    "physical_model_comparison": {
+      "status": "NOT IMPLEMENTED",
+      "ideal_singlet_baseline_chsh_s": 2.8284271247461903,
+      "limitations": [
+        "event-ready photon heralding and entanglement generation are absent",
+        "real spin preparation, control pulses, operation times, and calibration uncertainty are absent",
+        "decoherence, losses, detector efficiencies, and readout response are absent",
+        "random setting generation, spacetime separation, and trial-memory assumptions are not modeled",
+        "published event selection and detector timing are absent from the simulator"
+      ]
+    }
+  },
+  "integrity": "Downloaded source archive and extracted originals are retained without edits. Their SHA-256 digests are recorded above and in this directory."
+}

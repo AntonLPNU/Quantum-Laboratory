@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "experiment_id": "29041421-ae44-4a47-a6ca-0fbf90540e57",
+    "created_at_utc": "2026-10-09T19:46:05.589397+00:00",
+    "application_version": "0.1.0",
+    "code_version": "0.1.0",
+    "python_version": "3.13.5",
+    "dependency_versions": {
+      "numpy": "2.5.3",
+      "streamlit": "1.65.0",
+      "plotly": "6.9.0",
+      "kaleido": "1.5.0",
+      "matplotlib": "3.11.2"
+    },
+    "method": "exact density-matrix propagation and Born-rule projective measurement",
+    "numerical_precision": "complex128; density-matrix validation tolerance 1e-10; finite-shot uncertainty is reported with the results"
+  },
+  "configuration": {
+    "protocol": "signaling_control",
+    "shots_per_sender_choice": 100000,
+    "seed": 20261009,
+    "receiver_axis": [
+      0,
+      0,
+      1
+    ]
+  },
+  "results": {
+    "created_at_utc": "2026-10-09T19:46:05.564325+00:00",
+    "model": "ideal_two_spin_projective",
+    "initial_state": "singlet",
+    "shots_per_sender_choice": 100000,
+    "seed": 20261009,
+    "receiver_axis": [
+      0,
+      0,
+      1
+    ],
+    "receiver_counts": {
+      "0": {
+        "-1": 49927,
+        "+1": 50073
+      },
+      "1": {
+        "-1": 49743,
+        "+1": 50257
+      }
+    },
+    "receiver_local_distribution": {
+      "0": {
+        "-1": 0.4999999999999999,
+        "+1": 0.4999999999999999
+      },
+      "1": {
+        "-1": 0.4999999999999999,
+        "+1": 0.4999999999999999
+      }
+    },
+    "decoding_accuracy": 0.50092,
+    "decoding_standard_error": 0.001118033988749895,
+    "sender_outcomes_exposed_to_receiver": false,
+    "assumptions": [
+      "ideal singlet state",
+      "local unitary choices at A",
+      "ideal projective readout at B",
+      "no detector noise or loss"
+    ]
+  },
+  "sources": [
+    "SRC-003",
+    "SRC-004",
+    "SRC-006",
+    "SRC-002"
+  ]
+}
